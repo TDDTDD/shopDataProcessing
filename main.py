@@ -4,7 +4,7 @@ import pickle as pk
 
 '''
 南京：
-1经度 = 193220.3389830508m
+1经度 = 92819.61471090886m
 1维度 = 111864.406779661m
 # child[i][j][k]:第i层第j个矩阵的第k个小矩阵
 # fa[i][j]:第i层第j个矩阵的父矩阵
@@ -124,7 +124,7 @@ def data_process(x_longitude, x_latitude, y_longitude, y_latitude, difference_bo
     my_data = pd.read_csv(url, low_memory=False)
     step = init(x_longitude, x_latitude, y_longitude, y_latitude, difference_boundary)
     print(step, longitude_difference, latitude_difference)
-    # 11 0.0005900000000000002 0.0008850000000000004
+    # 10 0.0010773583984375057 0.0008939394531249992
     distribute_data(1, 2 ** step, 1, 2 ** step, 0, 0, x_latitude, x_longitude)
     print("build success! num: " + str(num[step]))
     distribute_shop(x_longitude, x_latitude, y_longitude, y_latitude, longitude_difference, latitude_difference,
@@ -147,7 +147,7 @@ def data_process(x_longitude, x_latitude, y_longitude, y_latitude, difference_bo
 
 
 # 传入要划分区域的左上角坐标，右下角坐标，经纬度差阈值，数据所在地址，结果存储地址
-data_process(118.256892, 32.405757, 119.465212, 30.593277, 0.000885, 'data/shopData.csv', 'data/processData.pkl')
+data_process(118.606465, 32.159281, 119.709680, 31.2438870, 0.001, 'data/shopData.csv', 'data/processData.pkl')
 '''
 # test:
 print(shopName[538008])
